@@ -1,0 +1,19 @@
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Ignorar node_modules de todos los proyectos
+**/node_modules/
+
+# Archivos de build
+**/dist/
+**/build/
+
+# Configuración del entorno
+**/.env
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Carpetas ocultas de Angular, VS Code, etc.
+**/.angular
+**/.vscode/
