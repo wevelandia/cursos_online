@@ -1,6 +1,6 @@
 
 
-(function (window, document, $, undefined) {
+function HOMEINIT($, undefined) {
     'use strict';
 
     var eduJs = {
@@ -71,49 +71,49 @@
         offCanvas: function (params) {
             if ($('#rbt-offcanvas-activation').length) {
                 $('#rbt-offcanvas-activation').on('click', function () {
-                    $('.side-menu').addClass('side-menu-active'), 
+                    $('.side-menu').addClass('side-menu-active'),
                     $('body').addClass('offcanvas-menu-active')
                 }),
 
                 $('.close_side_menu').on('click', function () {
-                    $('.side-menu').removeClass('side-menu-active'), 
+                    $('.side-menu').removeClass('side-menu-active'),
                     $('body').removeClass('offcanvas-menu-active')
                 }),
 
                 $('.side-menu .side-nav .navbar-nav li a').on('click', function () {
-                    $('.side-menu').removeClass('side-menu-active'), 
+                    $('.side-menu').removeClass('side-menu-active'),
                     $('body').removeClass('offcanvas-menu-active')
-                }), 
-                
+                }),
+
                 $('#btn_sideNavClose').on('click', function () {
-                    $('.side-menu').removeClass('side-menu-active'), 
+                    $('.side-menu').removeClass('side-menu-active'),
                     $('body').removeClass('offcanvas-menu-active')
                 });
-            } 
+            }
         },
 
         cartSidenav: function (params) {
             if ($('.rbt-cart-sidenav-activation').length) {
                 $('.rbt-cart-sidenav-activation').on('click', function () {
-                    $('.rbt-cart-side-menu').addClass('side-menu-active'), 
+                    $('.rbt-cart-side-menu').addClass('side-menu-active'),
                     $('body').addClass('cart-sidenav-menu-active')
                 }),
 
                 $('.minicart-close-button').on('click', function () {
-                    $('.rbt-cart-side-menu').removeClass('side-menu-active'), 
+                    $('.rbt-cart-side-menu').removeClass('side-menu-active'),
                     $('body').removeClass('cart-sidenav-menu-active')
                 }),
 
                 $('.side-menu .side-nav .navbar-nav li a').on('click', function () {
-                    $('.rbt-cart-side-menu').removeClass('side-menu-active'), 
+                    $('.rbt-cart-side-menu').removeClass('side-menu-active'),
                     $('body').removeClass('cart-sidenav-menu-active')
-                }), 
-                
+                }),
+
                 $('#btn_sideNavClose, .close_side_menu').on('click', function () {
-                    $('.rbt-cart-side-menu').removeClass('side-menu-active'), 
+                    $('.rbt-cart-side-menu').removeClass('side-menu-active'),
                     $('body').removeClass('cart-sidenav-menu-active')
                 });
-            } 
+            }
         },
 
 
@@ -201,7 +201,7 @@
                     992: {
                       slidesPerView: 3,
                     },
-                    
+
                     1200: {
                       slidesPerView: 4,
                     },
@@ -553,14 +553,14 @@
                     monthlyPrice.css('display', 'block');
                     yearlyPrice.css('display', 'none');
                 });
-                
+
                 $(yearlySelectBtn).on('click', function() {
                     buttonSlide.prop('checked', false);
                     $(this).addClass('active').parent('.nav-item').siblings().children().removeClass('active');
                     monthlyPrice.css('display', 'none');
                     yearlyPrice.css('display', 'block');
                 });
-    
+
                 $(buttonSlide).change(function() {
                     if ($('input[class="pricing-checkbox"]:checked').length > 0) {
                         monthlySelectBtn.addClass('active');
@@ -710,7 +710,7 @@
                         }
                     });
                     }
-                }); 
+                });
             });
         },
 
@@ -821,7 +821,7 @@
                 $('.header-transperent-spacer').css('padding-top', mainHeader + 'px');
             }
         },
-        
+
         categoryMenuHover: function () {
             $('.vertical-nav-menu li.vertical-nav-item').mouseover(function () {
                 $('.rbt-vertical-inner').hide();
@@ -923,7 +923,7 @@
             var scrollBottom = $('.rbt-course-action-bottom');
             $(window).scroll(function () {
                 var topPos = $(this).scrollTop();
-                var targetPossition = $(document).height() * 0.66; 
+                var targetPossition = $(document).height() * 0.66;
                 var filled = (($(document).scrollTop() + window.innerHeight) / $(document).height());
                 if (topPos > targetPossition && filled != 1) {
                     $(scrollBottom).addClass('rbt-course-action-active');
@@ -1011,4 +1011,26 @@
     }
     eduJs.i();
 
-})(window, document, jQuery);
+};
+
+// 1. De la linea final que estaba asi:
+// })(window, document, jQuery);
+// Se reemplaza por:
+// });
+
+// 2. Se quitan los parentesis iniciales y finales
+// (function (window, document, $, undefined) {
+// Queda así:
+// function (window, document, $, undefined) {
+
+// Y esta linea
+// });
+// Queda así:
+// };
+
+// 3. Ahora le ponemos un nombre a la funcion que es HOMEINIT
+// y le quitamos el windows y document
+// Esto:
+// function (window, document, $, undefined) {
+// Por esto
+// function HOMEINIT($, undefined) {

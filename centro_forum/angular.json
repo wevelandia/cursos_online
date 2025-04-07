@@ -35,12 +35,8 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "src/assets/css/vendor/bootstrap.min.css",
-              "src/styles.css"
             ],
             "scripts": [
-              "src/assets/js/vendor/jquery.js",
-              "src/assets/js/vendor/bootstrap.min.js"
             ]
           },
           "configurations": {
