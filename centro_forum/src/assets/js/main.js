@@ -52,6 +52,7 @@ function HOMEINIT($, undefined) {
             eduJs.autoslidertab();
             eduJs.moveAnimation();
             eduJs.contactForm();
+
         },
 
 
